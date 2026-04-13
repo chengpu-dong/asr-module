@@ -1,0 +1,15 @@
+# asr-module 依赖清单
+# 安装命令：pip install -r requirements.txt
+
+# ── ASR + VAD 核心 ────────────────────────────────────────────
+funasr>=1.1.0            # FunASR 框架（SenseVoice + fsmn-vad）
+modelscope>=1.9.0        # 模型下载源
+
+# ── 音频采集 ─────────────────────────────────────────────────
+sounddevice>=0.4.6       # 跨平台麦克风录音（依赖系统 PortAudio）
+numpy>=1.24.0            # 音频数组处理
+
+# ── 深度学习后端（funasr 强依赖，必须安装）────────────────────
+# ⚠️  PyTorch 官方目前最高支持 Python 3.12，请勿在 Python 3.13+ 的 venv 中安装
+torch>=2.0.0             # CPU 推理后端；Apple Silicon 可额外享受 MPS 加速
+torchaudio>=2.0.0        # funasr 音频处理后端（必须与 torch 版本匹配）
